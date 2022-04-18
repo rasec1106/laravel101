@@ -35,4 +35,23 @@ Route::get('/controller',[TestController::class, 'show']);
 // We also can add the query params here
 Route::get('/params/{id}',[TestController::class, 'params']);
 // If a param is "optional" we can put a ? after the param
-Route::get('/blog/{slug}/{id?}',[TestController::class, 'blog']);
+// We can also set a name to our function
+Route::get('/blog/{slug}/{id?}',[TestController::class, 'blog'])->name('blog');
+
+/**
+ * An important point is that we can GROUP ROUTES, and we use the keyword prefix to do it.
+ */
+Route::prefix('dashboard')->group(function(){
+    // We can name the main route and the subroutes
+    Route::name('dashboard.')->group(function(){
+        Route::get('/users',function(){
+            return view('myview');
+        })->name('users');
+        Route::get('/users/show',[TestController::class, 'users'])->name('users.show');
+        Route::get('/users/edit',[TestController::class, 'users'])->name('users.edit');
+    });
+});
+Route::prefix('public')->group(function(){
+    Route::get('/blog',[TestController::class, 'blog']);
+    Route::get('/blog/edit',[TestController::class, 'blog']);
+});

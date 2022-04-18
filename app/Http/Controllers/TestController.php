@@ -18,4 +18,7 @@ class TestController extends Controller
     function blog($slug, $id=null){
         return "The name of our post is ${slug} of id: ${id}";
     }
+    function users(){
+        return "USERS";
+    }
 }

@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello {{$name}}</h1>
-    <!-- {{$name}} is a variable sent from routes/web.php-->
+    <!-- $name is a variable sent from routes/web.php-->
+    <!-- To make the variable OPTIONAL we use {{$name ?? ''}} -->
+    <h1>Hello {{$name ?? ''}}</h1>
+    <!-- Here we show the route name -->
+    {{route('dashboard.users.show')}}
 </body>
 </html>
