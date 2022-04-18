@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,13 @@ Route::get('/hello', function(){
 });
 // Instead of using a function as the second parameter we can use the keyword view
 Route::view('direct-view', 'myview',['name'=>'Cesar']);
+
+/**
+ * To make a new controller we use this command: `php artisan make:controller {controller_name}`
+ */
+// Calling a controller
+Route::get('/controller',[TestController::class, 'show']);
+/**
+ * First we set the url, then an array that contains the controller class and the function
+ */
+Route::get('/controller2',[TestController::class, 'expert']);
