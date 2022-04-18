@@ -55,3 +55,9 @@ Route::prefix('public')->group(function(){
     Route::get('/blog',[TestController::class, 'blog']);
     Route::get('/blog/edit',[TestController::class, 'blog']);
 });
+
+/**
+ * Adding and testing the middleware
+ */
+Route::get('products',[TestController::class, 'showProducts'])->middleware('product_token');
+Route::get('no-token',[TestController::class, 'noToken'])->name('no_token');

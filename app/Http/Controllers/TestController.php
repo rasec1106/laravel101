@@ -21,4 +21,11 @@ class TestController extends Controller
     function users(){
         return "USERS";
     }
+    // Functions for the middleware
+    function showProducts(){
+        return "List of products";
+    }
+    function noToken(){
+        return "You don't have access to the list of products";
+    }
 }
