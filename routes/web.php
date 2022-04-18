@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// New route to show a message
+Route::get('/hello', function(){
+    return "Hello world";
+});
+// Instead of using a function as the second parameter we can use the keyword view
+Route::view('direct-view', 'myview',['name'=>'Cesar']);
