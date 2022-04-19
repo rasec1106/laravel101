@@ -22,8 +22,19 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // ddd stands for Dump, Die, Debug and shows a page with data regarding the parameter inside the function
+        // ddd($request);
+        // dd is a simplified version and shows some info about the paremeter
+        // dd($request);
+        // dd($request->path()); // to show the path -> in this case "categories"
+        // if($request->is('categories')){ // to verify is the path matches the pattern
+        //     dd('categories here');
+        // }
+        // dd($request->ip()); // to show the ip
+        // dd($request->method()); // to show the method -> in this case "GET"
+
         $category = 'Food';
         $category2 = 'Travel';
         // compact() is used when we want to send more than one variable
@@ -49,7 +60,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
     }
 
     /**

@@ -29,7 +29,25 @@ class ApiProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /**
+         * This is the POST method
+         * To access this function we must use postman
+         */
+        // dd($request->all()); // to show all the data of the body
+        // dd($request->input('name')); // get only the parameter 'name'
+        // dd($request->query()); // to get all the query params in the url
+        // dd($request->query('name')); // to get the query param 'name' in the url
+        // dd($request->boolean('is_active'));
+        /**
+         * There is also a different way to get the inputs in a request
+         */
+        // dd($request->name); // this gets the param name from the form-data (input) or the url (query params)
+        // dd($request->all()); // to get all the parameters sent
+        // dd($request->only(['name', 'lastname'])); // gets only the selected parameters, no matter how many we send
+        // dd($request->except(['name'])); // gets all the parameters except the elencated ones
+        // dd($request->has('age')); // to verify if it contains the parameter
+        // dd($request->has(['age', 'name'])); // it can be an array of parameters
+        dd($request->filled(['age', 'name'])); // to check if the parameter IS NOT EMPTY!!!
     }
 
     /**
