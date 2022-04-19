@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -69,3 +70,12 @@ Route::get('no-token',[TestController::class, 'noToken'])->name('no_token');
 // Route::get('categories/create',[CategoryController::class, 'create']);
 // Route::get('categories/update',[CategoryController::class, 'update']);
 Route::resource('categories',CategoryController::class);
+
+/** Products */
+// Here we have an apiResource instead of a Resource but its better to have it in the api.php file
+// The difference is that in the api.php we will have a different route path:
+    /**
+     * web.php -> uri: /products
+     * api.php -> uri: api/products
+     */
+// Route::apiResource('products', ApiProductController::class);
