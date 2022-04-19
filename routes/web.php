@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -61,3 +62,10 @@ Route::prefix('public')->group(function(){
  */
 Route::get('products',[TestController::class, 'showProducts'])->middleware('product_token');
 Route::get('no-token',[TestController::class, 'noToken'])->name('no_token');
+
+/** Category */
+// Instead of listing every path for the CategoryController we can just use the keyword resource
+// Route::get('categories',[CategoryController::class, 'index']);
+// Route::get('categories/create',[CategoryController::class, 'create']);
+// Route::get('categories/update',[CategoryController::class, 'update']);
+Route::resource('categories',CategoryController::class);
