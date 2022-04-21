@@ -24,6 +24,11 @@ class ProductToken
          */
         if(!$request->has('token') || $request->token != '1234'){
             return redirect(route('no_token'));
+            /**
+             * There are also another ways to redirect
+             *  return redirect('no-token); // the url of the view
+             *  return redirect()->route('no_token'); // similar to the first one
+             */
         }
         return $next($request);
     }

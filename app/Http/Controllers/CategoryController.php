@@ -49,7 +49,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return "Create";
+        // return response(['Hola'])
+        // ->header('X-Cabecera','Valor de cabecera') // we can add a header variable
+        // ->header('X-Cabecera2','Valor de cabecera 2') // or multiple
+        // ->cookie('cookieName', 'Value',60) // we can also send a cookie (name, value, duration_in_minutes)
+        // ->cookie('cookie2','Value',3);
+        return redirect('categories')->with('status','Created successfully');
     }
 
     /**
