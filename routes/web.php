@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -79,3 +80,5 @@ Route::resource('categories',CategoryController::class);
      * api.php -> uri: api/products
      */
 // Route::apiResource('products', ApiProductController::class);
+
+Route::resource('posts', PostController::class);
